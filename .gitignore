@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 .pnp**
 .yarn
+.env

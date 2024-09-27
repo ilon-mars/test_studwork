@@ -26,7 +26,8 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.vue",
-    "vite-env.d.ts"
+    "vite-env.d.ts",
+    "env.d.ts"
   ],
   "exclude": [
     "node_modules",
