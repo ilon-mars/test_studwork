@@ -1,7 +1,7 @@
 <template>
   <li>
     <RouterLink :to="{ name: RouteName.STARSHIP, params: { id } }">
-      <span>name: {{ item.name }}</span>
+      <span>name: {{ item.name }}</span> |
       <span>model: {{ item.model }}</span>
     </RouterLink>
   </li>

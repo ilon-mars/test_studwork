@@ -24,7 +24,7 @@ onMounted(async () => {
   try {
     starship.value = await StarshipController.getById(route.params.id as string);
   } catch (error) {
-    router.push({ name: RouteName.NOT_FOUND })
+    router.replace({ name: RouteName.NOT_FOUND })
   }
 });
 </script>
