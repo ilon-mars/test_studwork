@@ -1,45 +1,49 @@
-# test_studwork
+# Star wars API (Swapi) presentation
+В проекте происходит запрос к API Star wars, и выводится информация о космических кораблях.
 
-This template should help get you started developing with Vue 3 in Vite.
+![проект](<preview.png>)
 
-## Recommended IDE Setup
+## ТЗ
+Нужно создать интерфейс для взаимодействия с галактической базой.
+Всего необходимо реализовать 2 страницы. Список космических кораблей и страница корабля.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Страница со списком кораблей:
+  - На странице будет список всех кораблей
+  - Добавить текстовое поле для поиска по названию корабля. Учесть возможность передачи результатов поиска по ссылке.
+  - Реализовать пагинацию в формате next - prev
+  - При клике по элементу списка, пользователь переходит на страницу с информацией по конкретному кораблю.
 
-## Type Support for `.vue` Imports in TS
+- Страница корабля:
+  - Необходимо вывести всю информацию о корабле
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Стек
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=Vite&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-## Customize configuration
+## Реализованный функционал
+- на главной странице выводится список кораблей с пагинацией
+- поиск происходит по имени (полю `name`), результат поиска сохраняется в адресную строку, чтобы его можно было посмотреть
+- на странице конкретного корабля выводится информация о нем
+- если в адресную строку ввести несуществующий адрес, то произойдет переход на страницу с ошибкой
+- если при загрузке данных возникнет ошибка, справа снизу появится уведомление об ошибке
+- корректно отображается в Chrome, Firefox, Safari последних версий
+- верстка адаптивна и корректно работает на телефоне
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Как запустить локально
 
-## Project Setup
-
+- установка записимостей
 ```sh
 yarn
+// или
+npm i
 ```
-
-### Compile and Hot-Reload for Development
-
+- запуск
 ```sh
 yarn dev
+// or
+npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-yarn build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-yarn test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
-```
+[Ссылка на задеплоенный проект](https://ilon-mars.github.io/test_studwork/)
