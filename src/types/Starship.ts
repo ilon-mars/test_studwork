@@ -1,3 +1,5 @@
+import { BaseResponse } from "@/types/BaseResponse";
+
 export type Starship = {
   MGLT: string,
   cargo_capacity: string | number,
@@ -19,20 +21,13 @@ export type Starship = {
   url: string
 }
 
-export type StarshipResponse = {
-  count: number,
-  next: string
-  previous: string | null,
-  results: Starship[]
-}
-
 export type StarshipResponseChunks = {
-  firstChunk: StarshipResponse,
-  otherChunks: Promise<StarshipResponse[]>
+  firstChunk: BaseResponse<Starship>,
+  otherChunks: Promise<BaseResponse<Starship>[]>
 }
 
-export const isStarshipResponse = (response: unknown): response is StarshipResponse =>
-  (response as StarshipResponse).count !== undefined;
+export const isStarshipResponse = (response: unknown): response is BaseResponse<Starship> =>
+  (response as BaseResponse<Starship>).count !== undefined;
 
 export const isStarshipResponseChunks = (response: unknown): response is StarshipResponseChunks =>
   (response as StarshipResponseChunks).firstChunk !== undefined;

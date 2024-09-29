@@ -1,7 +1,7 @@
+import { BaseResponse } from '@/types/BaseResponse';
 import {
   isStarshipResponse,
   Starship,
-  StarshipResponse,
   StarshipResponseChunks
 } from '@/types/Starship';
 import { BaseAPI } from './api.service';
@@ -11,7 +11,7 @@ export class StarshipAPI extends BaseAPI {
     super('starships');
   }
 
-  async getAll(): Promise<StarshipResponse | StarshipResponseChunks> {
+  async getAll(): Promise<BaseResponse<Starship> | StarshipResponseChunks> {
     const response = await this.api.get();
 
     if (!isStarshipResponse(response)) {
@@ -32,13 +32,13 @@ export class StarshipAPI extends BaseAPI {
     return this.api.get(`/${id}`) as Promise<Starship>;
   }
 
-  #getDataFromAllPages(response: StarshipResponse) {
+  #getDataFromAllPages(response: BaseResponse<Starship>) {
     const ITEMS_IN_RESPONSE = 10;
     const pagesToGet = Math.ceil(response.count / ITEMS_IN_RESPONSE);
-    const promises: Promise<StarshipResponse>[] = [];
+    const promises: Promise<BaseResponse<Starship>>[] = [];
 
     for (let i = 2; i <= pagesToGet; i++) {
-      promises.push(this.api.get(`?page=${i}`) as Promise<StarshipResponse>);
+      promises.push(this.api.get(`?page=${i}`) as Promise<BaseResponse<Starship>>);
     }
 
     return promises;
