@@ -18,13 +18,13 @@
 import BaseButton from '@/components/UI/BaseButton.vue';
 
 defineProps<{
-  isPrevDisabled: boolean,
-  isNextDisabled: boolean
+  isPrevDisabled: boolean;
+  isNextDisabled: boolean;
 }>();
 
 defineEmits<{
-  (e: 'prev'): void,
-  (e: 'next'): void,
+  (e: 'prev'): void;
+  (e: 'next'): void;
 }>();
 </script>
 

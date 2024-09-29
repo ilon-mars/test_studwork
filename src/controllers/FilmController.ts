@@ -1,9 +1,9 @@
-import { Film } from "@/types/Film";
-import { CutDownController } from "./CutDownController";
+import { Film } from '@/types/Film';
+import { CutDownController } from '@/controllers/CutDownController';
 
 class FilmController extends CutDownController<Film> {
   _normalizeData(item: Film) {
-    return item.title
+    return item.title;
   }
 }
 

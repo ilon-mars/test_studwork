@@ -1,12 +1,9 @@
 <template>
-  <input
-    v-model="modelValue"
-    :class="$style.root"
-  />
+  <input v-model="modelValue" :class="$style.root" />
 </template>
 
 <script setup lang="ts">
-const modelValue = defineModel<string>()
+const modelValue = defineModel<string>();
 </script>
 
 <style module>

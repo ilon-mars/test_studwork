@@ -4,11 +4,7 @@
     <div :class="$style.circle2"></div>
     <div :class="$style.circle3"></div>
 
-    <div
-      v-for="i in 4"
-      :key="i"
-      :class="$style[`orbit${i}`]"
-    >
+    <div v-for="i in 4" :key="i" :class="$style[`orbit${i}`]">
       <div :class="$style[`pos${i}`]">
         <div :class="$style[`dot${i}`]"></div>
       </div>
@@ -25,7 +21,9 @@
   height: 100%;
 }
 
-.circle1, .circle2, .circle3 {
+.circle1,
+.circle2,
+.circle3 {
   border-radius: 50%;
   border: 1px solid var(--base-light);
   width: 1em;
@@ -53,11 +51,18 @@
   font-size: 4em;
 }
 
-.orbit1, .orbit2, .orbit3, .pos1, .pos2, .pos3 {
+.orbit1,
+.orbit2,
+.orbit3,
+.pos1,
+.pos2,
+.pos3 {
   animation-duration: 3s;
 }
 
-.orbit1, .orbit2, .orbit3 {
+.orbit1,
+.orbit2,
+.orbit3 {
   transform-style: preserve-3d;
   position: absolute;
   top: 50%;
@@ -72,7 +77,9 @@
   border-radius: 50%;
 }
 
-.pos1, .pos2, .pos3 {
+.pos1,
+.pos2,
+.pos3 {
   position: absolute;
   width: 2em;
   height: 2em;
@@ -85,7 +92,9 @@
   top: -1px;
 }
 
-.dot1, .dot2, .dot3 {
+.dot1,
+.dot2,
+.dot3 {
   background-color: var(--base-light);
   width: 0.5em;
   height: 0.5em;
@@ -100,11 +109,15 @@
   font-size: 0.2em;
 }
 
-.orbit1, .dot1, .pos1 {
+.orbit1,
+.dot1,
+.pos1 {
   animation-delay: -1s;
 }
 
-.orbit2, .orbit2, .pos2 {
+.orbit2,
+.orbit2,
+.pos2 {
   animation-delay: -2s;
 }
 

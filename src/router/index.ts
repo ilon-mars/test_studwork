@@ -20,8 +20,8 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: RouteName.NOT_FOUND,
       component: () => import('@/views/NotFound.vue')
-    },
+    }
   ]
 });
 
-export default router
+export default router;

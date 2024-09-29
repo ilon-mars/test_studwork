@@ -7,9 +7,8 @@ export class CutDownAPI<T> extends BaseAPI {
 
   async getAll(idList: string[]): Promise<T[]> {
     const promises = idList.map((id) => this.getById(id));
-    const response = await Promise.all(promises);
 
-    return response;
+    return await Promise.all(promises);
   }
 
   async getById(id: string): Promise<T> {

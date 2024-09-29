@@ -7,7 +7,7 @@
       <span :class="$style.name">{{ item.name }}</span>
       <span :class="$style.model">{{ item.model }}</span>
 
-      <ArrowIcon :class="$style.icon"/>
+      <ArrowIcon :class="$style.icon" />
     </RouterLink>
   </li>
 </template>
@@ -22,7 +22,7 @@ import { Starship } from '@/types/Starship';
 import { getIdFromUrl } from '@/utils/getIdFromUrl';
 
 const props = defineProps<{
-  item: Starship
+  item: Starship;
 }>();
 
 const id = ref(getIdFromUrl(props.item.url));

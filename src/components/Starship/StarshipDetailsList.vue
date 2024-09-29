@@ -1,6 +1,10 @@
 <template>
   <dl :class="$style.root">
-    <div v-for="prop in propertiesToShow" :class="$style.wrapper">
+    <div
+      v-for="prop in propertiesToShow"
+      :key="prop"
+      :class="$style.wrapper"
+    >
       <dt :class="$style.field">{{ camelCaseToPhrase(prop) }}</dt>
       <dd :class="$style.value">{{ starship[prop] }}</dd>
     </div>
@@ -14,7 +18,7 @@ import { propertiesToShow } from '@/constants/Starship';
 import { camelCaseToPhrase } from '@/utils/camelCaseToPhrase';
 
 defineProps<{
-  starship: Starship,
+  starship: Starship;
 }>();
 </script>
 

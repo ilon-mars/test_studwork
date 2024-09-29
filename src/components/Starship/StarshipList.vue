@@ -3,8 +3,7 @@
     <StarshipListCard
       v-for="item in list"
       :key="item.name"
-      :item="item"
-    />
+      :item="item" />
   </ul>
 </template>
 
@@ -13,7 +12,7 @@ import StarshipListCard from '@/components/Starship/StarshipListCard.vue';
 import { Starship } from '@/types/Starship';
 
 defineProps<{
-  list: Starship[]
+  list: Starship[];
 }>();
 </script>
 

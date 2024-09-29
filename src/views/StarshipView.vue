@@ -1,10 +1,7 @@
 <template>
   <AppLoader v-if="!starship" />
 
-  <StarshipDetails
-    v-else
-    :starship="starship"
-  />
+  <StarshipDetails v-else :starship="starship" />
 </template>
 
 <script setup lang="ts">
@@ -26,7 +23,7 @@ onMounted(async () => {
   try {
     starship.value = await StarshipController.getById(route.params.id as string);
   } catch (error) {
-    router.replace({ name: RouteName.NOT_FOUND })
+    await router.replace({ name: RouteName.NOT_FOUND });
   }
 });
 </script>

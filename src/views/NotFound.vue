@@ -1,10 +1,11 @@
 <template>
   <section :class="$style.root">
     <h2 :class="$style.title">Resource wasn't found</h2>
-    <img src="@/assets/img/error-page.gif" />
+    <img src="@/assets/img/error-page.gif" alt="baby yoda" />
+
     <BaseLink
       :to="{ name: RouteName.STARSHIP_LIST }"
-    >Go to main?</BaseLink>
+    >Go to main? </BaseLink>
   </section>
 </template>
 

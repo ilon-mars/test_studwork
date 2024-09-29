@@ -8,12 +8,12 @@
 import { BaseButtonType } from '@/enums/BaseButtonType';
 
 type Props = {
-  type?: BaseButtonType
-}
+  type?: BaseButtonType;
+};
 
 withDefaults(defineProps<Props>(), {
-  type: BaseButtonType.DEFAULT,
-})
+  type: BaseButtonType.DEFAULT
+});
 </script>
 
 <style module>

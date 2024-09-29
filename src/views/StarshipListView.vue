@@ -3,7 +3,7 @@
 
   <template v-else>
     <AppSearchBar v-model.trim="searchValue" />
-    <StarshipList :list="list"/>
+    <StarshipList :list="list" />
 
     <AppPagination
       v-show="!isSortingMode"
@@ -32,23 +32,17 @@ import { searchByName } from '@/utils/searchByName';
 const isLoading = ref(true);
 const starships = ref<Starship[]>([]);
 
-const {
-  searchValue,
-  filteredList,
-  getSearchQueryParams
-} = useSearch<Starship>(starships, searchByName);
+const { searchValue, filteredList, getSearchQueryParams } = useSearch<Starship>(
+  starships,
+  searchByName
+);
 
-const {
-  isPrevDisabled,
-  isNextDisabled,
-  goPrev,
-  goNext,
-  paginatedList
-} = usePagination<Starship>(starships);
+const { isPrevDisabled, isNextDisabled, goPrev, goNext, paginatedList } =
+  usePagination<Starship>(starships);
 
 onMounted(async () => {
   try {
-    starships.value = await StarshipController.getAll() || [];
+    starships.value = await StarshipController.getAll();
     isLoading.value = false;
 
     getSearchQueryParams();
@@ -59,5 +53,5 @@ onMounted(async () => {
 
 const isSortingMode = computed(() => searchValue.value);
 
-const list = computed(() => isSortingMode.value ? filteredList.value : paginatedList.value)
+const list = computed(() => (isSortingMode.value ? filteredList.value : paginatedList.value));
 </script>

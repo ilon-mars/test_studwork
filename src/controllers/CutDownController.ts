@@ -1,6 +1,6 @@
-import ErrorController from "@/controllers/ErrorController";
-import { CutDownAPI } from "@/service/CutDownAPI";
-import { getIdFromUrl } from "@/utils/getIdFromUrl";
+import ErrorController from '@/controllers/ErrorController';
+import { CutDownAPI } from '@/service/CutDownAPI';
+import { getIdFromUrl } from '@/utils/getIdFromUrl';
 
 export abstract class CutDownController<T> {
   private api;
@@ -27,4 +27,4 @@ export abstract class CutDownController<T> {
   protected _normalizeData(item: T) {
     throw new Error('Add implementation of mapping');
   }
-};
+}

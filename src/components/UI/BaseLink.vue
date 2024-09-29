@@ -1,15 +1,12 @@
 <template>
-  <RouterLink
-    :class="$style.root"
-    :to="to"
-  >
+  <RouterLink :class="$style.root" :to="to">
     <slot />
   </RouterLink>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  to: Object,
+  to: Object;
 }>();
 </script>
 

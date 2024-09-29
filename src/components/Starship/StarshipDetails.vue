@@ -7,14 +7,14 @@
     <template v-if="films?.length">
       <h3 :class="$style.subtitle">Films</h3>
       <ul :class="$style.list">
-        <li v-for="film in films">{{ film }}</li>
+        <li v-for="[film, index] in films" :key="index">{{ film }}</li>
       </ul>
     </template>
 
     <template v-if="pilots?.length">
       <h3 :class="$style.subtitle">Pilots</h3>
       <ul :class="$style.list">
-        <li v-for="pilot in pilots">{{ pilot }}</li>
+        <li v-for="[pilot, index] in pilots" :key="index">{{ pilot }}</li>
       </ul>
     </template>
 
@@ -36,7 +36,7 @@ import { Pilot } from '@/types/Pilot';
 import { Starship } from '@/types/Starship';
 
 const props = defineProps<{
-  starship: Starship,
+  starship: Starship;
 }>();
 
 const router = useRouter();
@@ -51,7 +51,7 @@ onMounted(async () => {
       PilotController.getAll(props.starship.pilots)
     ]);
   } catch (error) {
-    router.replace({ name: RouteName.NOT_FOUND })
+    await router.replace({ name: RouteName.NOT_FOUND });
   }
 });
 </script>

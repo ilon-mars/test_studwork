@@ -1,4 +1,4 @@
-import { StarshipProperties } from "@/enums/StarshipProperties";
+import { StarshipProperties } from '@/enums/StarshipProperties';
 
 export const propertiesToShow = [
   StarshipProperties.MODEL,

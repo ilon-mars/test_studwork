@@ -7,8 +7,10 @@ export const usePagination = <T>(list: Ref<T[]>) => {
   const isPrevDisabled = ref(true);
   const isNextDisabled = ref(false);
 
-  const maxPage = computed(() => Math.ceil(list.value.length / PER_PAGE))
-  const paginatedList = computed(() => list.value.slice((currentPage.value - 1) * PER_PAGE, currentPage.value * PER_PAGE))
+  const maxPage = computed(() => Math.ceil(list.value.length / PER_PAGE));
+  const paginatedList = computed(() =>
+    list.value.slice((currentPage.value - 1) * PER_PAGE, currentPage.value * PER_PAGE)
+  );
 
   const goPrev = () => {
     currentPage.value--;
@@ -17,7 +19,7 @@ export const usePagination = <T>(list: Ref<T[]>) => {
     if (currentPage.value === 1) {
       isPrevDisabled.value = true;
     }
-  }
+  };
 
   const goNext = () => {
     currentPage.value++;
@@ -26,7 +28,7 @@ export const usePagination = <T>(list: Ref<T[]>) => {
     if (currentPage.value === maxPage.value) {
       isNextDisabled.value = true;
     }
-  }
+  };
 
   return {
     isPrevDisabled,
@@ -34,5 +36,5 @@ export const usePagination = <T>(list: Ref<T[]>) => {
     paginatedList,
     goPrev,
     goNext
-  }
-}
+  };
+};

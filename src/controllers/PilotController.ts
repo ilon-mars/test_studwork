@@ -1,9 +1,9 @@
-import { Pilot } from "@/types/Pilot";
-import { CutDownController } from "./CutDownController";
+import { Pilot } from '@/types/Pilot';
+import { CutDownController } from '@/controllers/CutDownController';
 
 class PilotController extends CutDownController<Pilot> {
   _normalizeData(item: Pilot) {
-    return item.name
+    return item.name;
   }
 }
 

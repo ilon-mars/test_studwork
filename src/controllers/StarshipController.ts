@@ -1,5 +1,5 @@
-import ErrorController from "@/controllers/ErrorController";
-import { StarshipAPI } from "@/service/StarshipAPI";
+import ErrorController from '@/controllers/ErrorController';
+import { StarshipAPI } from '@/service/StarshipAPI';
 import { isStarshipResponseChunks, Starship } from '@/types/Starship';
 
 class StarshipController {
@@ -10,7 +10,10 @@ class StarshipController {
       const data = await this.api.getAll();
 
       if (isStarshipResponseChunks(data)) {
-        const result = (await data.otherChunks).reduce((acc, current) => [...acc, ...current.results], [] as Starship[]);
+        const result = (await data.otherChunks).reduce(
+          (acc, current) => [...acc, ...current.results],
+          [] as Starship[]
+        );
 
         return [...data.firstChunk.results, ...result];
       }

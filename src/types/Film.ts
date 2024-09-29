@@ -1,3 +1,3 @@
 export type Film = {
-  title: string
-}
+  title: string;
+};

@@ -10,5 +10,5 @@ export const enum StarshipProperties {
   MAX_ATMOSPHERING_SPEED = 'max_atmosphering_speed',
   MODEL = 'model',
   PASSENGERS = 'passengers',
-  STARSHP_CLASS = 'starship_class',
+  STARSHP_CLASS = 'starship_class'
 }

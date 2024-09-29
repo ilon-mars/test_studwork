@@ -11,8 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import CloseIcon from '@/components/icons/CloseIcon.vue';
 import { useToastStore } from '@/stores/toast';
+
+import CloseIcon from '@/components/icons/CloseIcon.vue';
 
 const store = useToastStore();
 </script>

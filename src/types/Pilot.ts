@@ -1,3 +1,3 @@
 export type Pilot = {
-  name: string
-}
+  name: string;
+};

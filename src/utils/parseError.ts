@@ -1,8 +1,5 @@
-const hasMessage = (error: unknown): error is { message: string } => (
-  typeof error === 'object'
-  && error !== null
-  && 'message' in error
-);
+const hasMessage = (error: unknown): error is { message: string } =>
+  typeof error === 'object' && error !== null && 'message' in error;
 
 export const parseError = (error: unknown) => {
   if (typeof error === 'string') {
@@ -10,8 +7,8 @@ export const parseError = (error: unknown) => {
   }
 
   if (hasMessage(error)) {
-    return error.message
+    return error.message;
   }
 
-  return 'An error occured. Contact somebody.'
-}
+  return 'An error occured. Contact somebody.';
+};

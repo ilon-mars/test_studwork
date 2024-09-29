@@ -1,12 +1,6 @@
 <template>
-  <form
-    :class="$style.root"
-    @submit.prevent="onSubmit"
-  >
-    <BaseInput
-      v-model.trim="inputValue"
-      type="search"
-    />
+  <form :class="$style.root" @submit.prevent="onSubmit">
+    <BaseInput v-model.trim="inputValue" type="search" />
 
     <BaseButton :type="BaseButtonType.PRIMARY">search</BaseButton>
     <BaseButton
@@ -26,11 +20,11 @@ import BaseInput from '@/components/UI/BaseInput.vue';
 import { BaseButtonType } from '@/enums/BaseButtonType';
 
 const props = defineProps<{
-  modelValue: string
+  modelValue: string;
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: string): void;
 }>();
 
 const router = useRouter();
@@ -40,12 +34,12 @@ const inputValue = ref(props.modelValue);
 const updateAddressBar = (value: string) => {
   router.push({
     query: {
-      q: value,
-    },
+      q: value
+    }
   });
 };
 
-const onSubmit =() => {
+const onSubmit = () => {
   emit('update:modelValue', inputValue.value);
 
   updateAddressBar(inputValue.value);

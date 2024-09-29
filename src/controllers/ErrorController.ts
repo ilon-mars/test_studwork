@@ -1,5 +1,5 @@
-import { useToastStore } from "@/stores/toast";
-import { parseError } from "@/utils/parseError";
+import { useToastStore } from '@/stores/toast';
+import { parseError } from '@/utils/parseError';
 
 class ErrorController {
   showError(error: unknown) {
@@ -8,4 +8,4 @@ class ErrorController {
   }
 }
 
-export default new ErrorController;
+export default new ErrorController();
