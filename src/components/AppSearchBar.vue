@@ -1,16 +1,20 @@
 <template>
-    <form @submit.prevent="onSubmit">
-      <input
-        v-model.trim="inputValue"
-        type="search"
-      />
-      <BaseButton>search</BaseButton>
-      <BaseButton
-        type="button"
-        :disabled="!inputValue"
-        @click="onClick"
-      >clear</BaseButton>
-    </form>
+  <form
+    :class="$style.root"
+    @submit.prevent="onSubmit"
+  >
+    <BaseInput
+      v-model.trim="inputValue"
+      type="search"
+    />
+
+    <BaseButton :type="BaseButtonType.PRIMARY">search</BaseButton>
+    <BaseButton
+      type="button"
+      :disabled="!inputValue"
+      @click="onClick"
+    >clear</BaseButton>
+  </form>
 </template>
 
 <script setup lang="ts">
@@ -18,6 +22,8 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import BaseButton from '@/components/UI/BaseButton.vue';
+import BaseInput from '@/components/UI/BaseInput.vue';
+import { BaseButtonType } from '@/enums/BaseButtonType';
 
 const props = defineProps<{
   modelValue: string
@@ -54,3 +60,17 @@ const onClick = () => {
   onSubmit();
 };
 </script>
+
+<style module>
+.root {
+  display: flex;
+  width: 100%;
+  padding-top: var(--space-s);
+  justify-content: center;
+  gap: var(--space-s);
+}
+
+.searchButton {
+  background-color: var(--base-accent-dimmed);
+}
+</style>

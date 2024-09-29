@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul :class="$style.root">
     <StarshipListCard
       v-for="item in list"
       :key="item.name"
@@ -16,3 +16,14 @@ defineProps<{
   list: Starship[]
 }>();
 </script>
+
+<style module>
+.root {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: var(--space-m) 0;
+  min-height: 750px;
+  padding-left: 0;
+}
+</style>

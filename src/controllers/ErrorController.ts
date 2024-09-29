@@ -1,6 +1,10 @@
+import { useToastStore } from "@/stores/toast";
+import { parseError } from "@/utils/parseError";
+
 class ErrorController {
   showError(error: unknown) {
-    console.log(error)
+    const toast = useToastStore();
+    toast.showError(parseError(error));
   }
 }
 

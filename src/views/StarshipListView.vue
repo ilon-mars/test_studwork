@@ -24,6 +24,7 @@ import AppSearchBar from '@/components/AppSearchBar.vue';
 import StarshipList from '@/components/Starship/StarshipList.vue';
 import { usePagination } from '@/composables/usePagination';
 import { useSearch } from '@/composables/useSearch';
+import ErrorController from '@/controllers/ErrorController';
 import StarshipController from '@/controllers/StarshipController';
 import { Starship } from '@/types/Starship';
 import { searchByName } from '@/utils/searchByName';
@@ -46,10 +47,14 @@ const {
 } = usePagination<Starship>(starships);
 
 onMounted(async () => {
-  starships.value = await StarshipController.getAll() || [];
-  isLoading.value = false;
+  try {
+    starships.value = await StarshipController.getAll() || [];
+    isLoading.value = false;
 
-  getSearchQueryParams();
+    getSearchQueryParams();
+  } catch (error) {
+    ErrorController.showError(error);
+  }
 });
 
 const isSortingMode = computed(() => searchValue.value);

@@ -1,0 +1,14 @@
+:root {
+  --base-dark: #111111;
+  --base-light: #fff4e1;
+  --base-accent: #fe5f05;
+
+  --base-accent-dimmed: rgb(254, 95, 5, 0.8);
+  --bg-dark-dimmed: rgba(255, 244, 225, 0.1);
+
+  --fg-role-text: #a4a189;
+
+  --space-s: 10px;
+  --space-m: 20px;
+  --space-l: 25px;
+}
