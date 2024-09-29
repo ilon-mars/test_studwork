@@ -1,17 +1,19 @@
 <template>
-    <input
-      :value="modelValue"
-      @input="onInput"
-      type="search"
-    />
+    <form @submit.prevent="onSubmit">
+      <input
+        v-model.trim="inputValue"
+        type="search"
+      />
+      <button>search</button>
+      <button type="button" @click="onClick">clear</button>
+    </form>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { debounce } from '@/utils/debounce';
-
-defineProps<{
+const props = defineProps<{
   modelValue: string
 }>();
 
@@ -21,19 +23,28 @@ const emit = defineEmits<{
 
 const router = useRouter();
 
-const onInput = debounce((e: Event) => {
-  if (!e.target) {
-    return;
-  }
+const inputValue = ref(props.modelValue);
 
-  const value = (e.target as HTMLInputElement).value.trim();
-
-  emit('update:modelValue', value);
-
+const updateAddressBar = (value: string) => {
   router.push({
     query: {
       q: value,
     },
   });
-}, 500);
+};
+
+const onSubmit =() => {
+  emit('update:modelValue', inputValue.value);
+
+  updateAddressBar(inputValue.value);
+
+  if (!inputValue.value) {
+    router.replace({ query: undefined });
+  }
+};
+
+const onClick = () => {
+  inputValue.value = '';
+  onSubmit();
+};
 </script>

@@ -21,7 +21,11 @@ import { searchByName } from '@/utils/searchByName';
 const isLoading = ref(true);
 const starships = ref<Starship[]>([]);
 
-const { searchValue, filteredList, getSearchQueryParams } = useSearch<Starship>(starships, searchByName);
+const {
+  searchValue,
+  filteredList,
+  getSearchQueryParams
+} = useSearch<Starship>(starships, searchByName);
 
 onMounted(async () => {
   starships.value = await StarshipController.getAll() || [];
