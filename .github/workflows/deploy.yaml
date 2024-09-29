@@ -5,7 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: 
-      - master
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,6 +32,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          BASE_URL: ${{ secrets.BASE_URL }}
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
