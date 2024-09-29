@@ -42,7 +42,7 @@ const { isPrevDisabled, isNextDisabled, goPrev, goNext, paginatedList } =
 
 onMounted(async () => {
   try {
-    starships.value = await StarshipController.getAll();
+    starships.value = await StarshipController.getAll() || [];
     isLoading.value = false;
 
     getSearchQueryParams();

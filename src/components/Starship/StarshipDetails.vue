@@ -7,14 +7,14 @@
     <template v-if="films?.length">
       <h3 :class="$style.subtitle">Films</h3>
       <ul :class="$style.list">
-        <li v-for="[film, index] in films" :key="index">{{ film }}</li>
+        <li v-for="film in films" :key="film.title">{{ film }}</li>
       </ul>
     </template>
 
     <template v-if="pilots?.length">
       <h3 :class="$style.subtitle">Pilots</h3>
       <ul :class="$style.list">
-        <li v-for="[pilot, index] in pilots" :key="index">{{ pilot }}</li>
+        <li v-for="pilot in pilots" :key="pilot.name">{{ pilot }}</li>
       </ul>
     </template>
 

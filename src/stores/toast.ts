@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useToastStore = defineStore('toast', () => {
-  const error = ref(null);
+  const error = ref<string | null>(null);
 
   function showError(message: string) {
     error.value = message;

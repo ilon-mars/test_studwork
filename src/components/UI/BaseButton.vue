@@ -1,5 +1,5 @@
 <template>
-  <button :class="[$style.root, $style[type]]">
+  <button :class="[$style.root, $style[styleType]]">
     <slot />
   </button>
 </template>
@@ -8,11 +8,11 @@
 import { BaseButtonType } from '@/enums/BaseButtonType';
 
 type Props = {
-  type?: BaseButtonType;
+  styleType?: BaseButtonType;
 };
 
 withDefaults(defineProps<Props>(), {
-  type: BaseButtonType.DEFAULT
+  styleType: BaseButtonType.DEFAULT
 });
 </script>
 

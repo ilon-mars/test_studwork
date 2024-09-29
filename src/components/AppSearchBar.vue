@@ -2,7 +2,7 @@
   <form :class="$style.root" @submit.prevent="onSubmit">
     <BaseInput v-model.trim="inputValue" type="search" />
 
-    <BaseButton :type="BaseButtonType.PRIMARY">search</BaseButton>
+    <BaseButton :styleType="BaseButtonType.PRIMARY">search</BaseButton>
     <BaseButton
       type="button"
       :disabled="!inputValue"
