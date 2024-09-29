@@ -4,14 +4,20 @@
         v-model.trim="inputValue"
         type="search"
       />
-      <button>search</button>
-      <button type="button" @click="onClick">clear</button>
+      <BaseButton>search</BaseButton>
+      <BaseButton
+        type="button"
+        :disabled="!inputValue"
+        @click="onClick"
+      >clear</BaseButton>
     </form>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+
+import BaseButton from '@/components/UI/BaseButton.vue';
 
 const props = defineProps<{
   modelValue: string
