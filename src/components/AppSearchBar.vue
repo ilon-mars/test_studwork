@@ -59,7 +59,6 @@ const onClick = () => {
 .root {
   display: flex;
   width: 100%;
-  padding-top: var(--space-s);
   justify-content: center;
   gap: var(--space-s);
 }

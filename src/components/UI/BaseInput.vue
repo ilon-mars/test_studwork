@@ -13,6 +13,7 @@ const modelValue = defineModel<string>();
   color: var(--base-light);
   padding: 0 var(--space-s);
   transition: border-color 0.2s ease;
+  width: 100%;
 
   &:focus {
     outline: none;

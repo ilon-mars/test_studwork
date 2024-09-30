@@ -16,9 +16,10 @@
 .root {
   transform: rotateX(75deg);
   transform-style: preserve-3d;
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100%;
+  top: 0;
 }
 
 .circle1,
